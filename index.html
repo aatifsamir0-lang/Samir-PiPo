@@ -1,0 +1,741 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#070812">
+  <meta name="description" content="Samir Aatif — Développeur web et créateur d'expériences digitales.">
+  <title>SAMIR® — Digital Universe</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">S<span>.</span></div>
+      <div class="loader-line">
+        <div class="loader-progress"></div>
+      </div>
+      <p>INITIALIZING DIGITAL UNIVERSE</p>
+      <span class="loader-percent">00 — 100</span>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- BACKGROUND EFFECTS -->
+  <div class="background-grid"></div>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="logo" aria-label="Samir homepage">
+      SAMIR<span class="logo-dot">.</span>
+      <span class="logo-tag">DIGITAL CREATOR</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Accueil <span>01</span></a>
+      <a href="#about" class="nav-link">À propos <span>02</span></a>
+      <a href="#projects" class="nav-link">Projets <span>03</span></a>
+      <a href="#skills" class="nav-link">Compétences <span>04</span></a>
+      <a href="#contact" class="nav-link">Contact <span>05</span></a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">
+      <span>Travaillons ensemble</span>
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero section" id="home">
+
+      <div class="hero-content">
+        <div class="availability">
+          <span class="availability-dot"></span>
+          <span>AVAILABLE FOR OPPORTUNITIES</span>
+        </div>
+
+        <p class="hero-kicker">
+          <span class="line-decoration"></span>
+          PORTFOLIO / 2026
+        </p>
+
+        <h1 class="hero-title">
+          I BUILD<br>
+          <span class="title-outline">DIGITAL</span><br>
+          <span class="title-gradient">WORLDS<span class="title-period">.</span></span>
+        </h1>
+
+        <p class="hero-description">
+          Je suis <strong>Samir Aatif</strong>, développeur passionné par
+          le web, les technologies modernes et les expériences digitales
+          qui sortent de l'ordinaire.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="button button-primary">
+            Explorer mes projets
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+
+          <a href="#about" class="button button-secondary">
+            Découvrir mon univers
+            <span class="button-circle">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </span>
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <span class="social-label">FOLLOW THE JOURNEY</span>
+
+          <a href="https://github.com/aatifsamir0-lang"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+
+          <a href="mailto:your.email@example.com"
+             aria-label="Email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3D SCENE -->
+      <div class="hero-visual" id="heroVisual">
+        <canvas id="universeCanvas" aria-label="Interactive 3D digital universe"></canvas>
+
+        <div class="visual-vignette"></div>
+
+        <div class="orbit-label orbit-label-top">
+          <span class="label-dot"></span>
+          <span>CREATIVE SYSTEM</span>
+        </div>
+
+        <div class="orbit-label orbit-label-bottom">
+          <span>LATITUDE 34.02° N</span>
+          <span class="label-separator"></span>
+          <span>ONLINE</span>
+        </div>
+
+        <div class="hud-card hud-card-top">
+          <span class="hud-small">SYSTEM STATUS</span>
+          <div class="hud-status">
+            <span class="availability-dot"></span>
+            OPERATIONAL
+          </div>
+          <div class="hud-data">
+            <span>CORE</span>
+            <strong>3D / WEB</strong>
+          </div>
+        </div>
+
+        <div class="hud-card hud-card-bottom">
+          <span class="hud-small">CURRENT MISSION</span>
+          <strong>Building the future.</strong>
+          <div class="hud-progress">
+            <span></span>
+          </div>
+          <div class="hud-data">
+            <span>CREATIVITY</span>
+            <strong>UNLIMITED</strong>
+          </div>
+        </div>
+
+        <div class="visual-coordinate coordinate-one">X: 024.8</div>
+        <div class="visual-coordinate coordinate-two">Y: 108.2</div>
+
+        <div class="visual-cross cross-one">+</div>
+        <div class="visual-cross cross-two">+</div>
+      </div>
+
+      <div class="hero-index">
+        <span>01</span>
+        <span class="index-line"></span>
+        <span>05</span>
+      </div>
+
+      <a href="#about" class="scroll-indicator">
+        <span class="scroll-mouse"><span></span></span>
+        <span>SCROLL TO EXPLORE</span>
+      </a>
+
+      <div class="hero-bottom-note">
+        <span>DESIGNED WITH CURIOSITY</span>
+        <span>BUILT WITH PURPOSE</span>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee-section" aria-label="Areas of interest">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>WEB DEVELOPMENT</span>
+          <span class="marquee-star">✳</span>
+          <span>CREATIVE CODING</span>
+          <span class="marquee-star">✳</span>
+          <span>3D EXPERIENCES</span>
+          <span class="marquee-star">✳</span>
+          <span>UI / UX DESIGN</span>
+          <span class="marquee-star">✳</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>WEB DEVELOPMENT</span>
+          <span class="marquee-star">✳</span>
+          <span>CREATIVE CODING</span>
+          <span class="marquee-star">✳</span>
+          <span>3D EXPERIENCES</span>
+          <span class="marquee-star">✳</span>
+          <span>UI / UX DESIGN</span>
+          <span class="marquee-star">✳</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+      <div class="section-container">
+
+        <div class="section-heading">
+          <div class="section-eyebrow">
+            <span class="eyebrow-number">01 /</span>
+            <span>THE HUMAN BEHIND THE SCREEN</span>
+          </div>
+
+          <h2 class="section-title">
+            More than code.<br>
+            <span class="title-gradient">A way of thinking.</span>
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-visual">
+            <div class="about-orbit orbit-large"></div>
+            <div class="about-orbit orbit-medium"></div>
+            <div class="about-orbit orbit-small"></div>
+
+            <div class="about-core">
+              <span class="about-core-letter">S</span>
+              <span class="about-core-caption">EST. 2006</span>
+            </div>
+
+            <div class="about-floating-tag tag-code">
+              <i class="fa-solid fa-code"></i>
+              <span>CODE</span>
+            </div>
+
+            <div class="about-floating-tag tag-creative">
+              <i class="fa-solid fa-lightbulb"></i>
+              <span>CREATE</span>
+            </div>
+
+            <div class="about-floating-tag tag-future">
+              <i class="fa-solid fa-rocket"></i>
+              <span>INNOVATE</span>
+            </div>
+
+            <div class="about-visual-caption">
+              <span>FIG. 001</span>
+              <span>THE CREATIVE MIND</span>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <p class="about-lead">
+              Je transforme les idées en expériences digitales
+              <span class="text-highlight">utiles, modernes et mémorables.</span>
+            </p>
+
+            <p>
+              Actuellement étudiant en première année de BTS
+              Développement des Applications Informatiques, je développe
+              mes compétences en programmation, en conception web et en
+              bases de données.
+            </p>
+
+            <p>
+              J'aime comprendre comment les choses fonctionnent,
+              apprendre de nouvelles technologies et créer des projets
+              qui associent design, logique et performance.
+            </p>
+
+            <p>
+              Mon objectif : évoluer constamment et devenir un développeur
+              capable de transformer une idée ambitieuse en une solution
+              concrète.
+            </p>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">01<span>+</span></span>
+                <span class="stat-label">YEAR OF LEARNING</span>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">IDEAS TO EXPLORE</span>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number">100<span>%</span></span>
+                <span class="stat-label">CURIOSITY</span>
+              </div>
+            </div>
+
+            <a href="#contact" class="text-link">
+              Faisons connaissance
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-bottom-line">
+          <span>BASED IN MOROCCO</span>
+          <span class="line-decoration"></span>
+          <span>THINKING GLOBALLY</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects section" id="projects">
+      <div class="section-container">
+
+        <div class="section-heading projects-heading">
+          <div>
+            <div class="section-eyebrow">
+              <span class="eyebrow-number">02 /</span>
+              <span>SELECTED WORKS</span>
+            </div>
+
+            <h2 class="section-title">
+              Ideas made<br>
+              <span class="title-gradient">real.</span>
+            </h2>
+          </div>
+
+          <p class="section-side-description">
+            Une sélection de projets et de concepts qui reflètent
+            mon apprentissage, ma créativité et ma passion pour le développement.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT 01 -->
+          <article class="project-card project-large">
+            <a href="https://github.com/aatifsamir0-lang"
+               target="_blank" rel="noopener noreferrer"
+               class="project-visual project-visual-lost"
+               aria-label="Découvrir le projet Lost and Found">
+
+              <div class="project-visual-grid"></div>
+
+              <div class="lostfound-mockup">
+                <div class="mockup-nav">
+                  <span class="mockup-brand">Lost<span>&</span>Found.</span>
+                  <span class="mockup-menu">HOME&nbsp;&nbsp; SEARCH&nbsp;&nbsp; CONTACT</span>
+                </div>
+
+                <div class="mockup-main">
+                  <span class="mockup-kicker">FIND WHAT MATTERS</span>
+                  <h3>Lost something?<br><span>Find it here.</span></h3>
+                  <p>A smarter way to reconnect people with their belongings.</p>
+                  <span class="mockup-button">EXPLORE ITEMS ↗</span>
+                </div>
+
+                <div class="mockup-decoration mockup-circle"></div>
+                <div class="mockup-decoration mockup-square"></div>
+                <div class="mockup-bottom-label">DIGITAL COMMUNITY / 001</div>
+              </div>
+
+              <span class="project-open-icon">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </span>
+            </a>
+
+            <div class="project-info">
+              <div>
+                <span class="project-number">PROJECT / 001</span>
+                <h3>Lost & Found</h3>
+                <p>Une plateforme web pour retrouver des objets perdus et signaler des objets trouvés.</p>
+              </div>
+
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>PHP</span>
+                  <span>MySQL</span>
+                </div>
+                <a href="https://github.com/aatifsamir0-lang"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-arrow" aria-label="Voir sur GitHub">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02 -->
+          <article class="project-card">
+            <a href="https://github.com/aatifsamir0-lang"
+               target="_blank" rel="noopener noreferrer"
+               class="project-visual project-visual-worklink"
+               aria-label="Découvrir le projet WorkLink">
+
+              <div class="worklink-scene">
+                <div class="worklink-window">
+                  <div class="window-top">
+                    <div class="window-dots"><span></span><span></span><span></span></div>
+                    <span>worklink.app</span>
+                  </div>
+
+                  <div class="worklink-content">
+                    <span class="worklink-label">YOUR SKILLS. YOUR FUTURE.</span>
+                    <h3>Work<span>Link</span></h3>
+                    <p>Connect. Work. Grow.</p>
+
+                    <div class="worklink-search">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                      <span>Find a professional...</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+
+                    <div class="worklink-categories">
+                      <span><i class="fa-solid fa-code"></i> Tech</span>
+                      <span><i class="fa-solid fa-paintbrush"></i> Design</span>
+                      <span><i class="fa-solid fa-wrench"></i> Services</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <span class="project-open-icon">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </span>
+            </a>
+
+            <div class="project-info">
+              <div>
+                <span class="project-number">PROJECT / 002</span>
+                <h3>WorkLink</h3>
+                <p>Concept de plateforme reliant les clients aux professionnels de services.</p>
+              </div>
+
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span>PHP</span>
+                  <span>MySQL</span>
+                  <span>PDO</span>
+                </div>
+                <a href="https://github.com/aatifsamir0-lang"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-arrow" aria-label="Voir sur GitHub">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 -->
+          <article class="project-card">
+            <a href="https://github.com/aatifsamir0-lang"
+               target="_blank" rel="noopener noreferrer"
+               class="project-visual project-visual-portfolio"
+               aria-label="Découvrir le portfolio 3D">
+
+              <div class="portfolio-scene">
+                <div class="portfolio-sun"></div>
+                <div class="portfolio-ring portfolio-ring-one"></div>
+                <div class="portfolio-ring portfolio-ring-two"></div>
+                <div class="portfolio-ring portfolio-ring-three"></div>
+                <div class="portfolio-cross">+</div>
+                <div class="portfolio-cross portfolio-cross-two">+</div>
+
+                <div class="portfolio-label">
+                  <span>CREATIVE DEVELOPER</span>
+                  <strong>Beyond<br>the screen<span>.</span></strong>
+                </div>
+
+                <div class="portfolio-mini-label">EXPERIMENT / 003</div>
+              </div>
+
+              <span class="project-open-icon">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </span>
+            </a>
+
+            <div class="project-info">
+              <div>
+                <span class="project-number">PROJECT / 003</span>
+                <h3>Digital Universe</h3>
+                <p>Portfolio expérimental qui explore les animations, la 3D et les interfaces futuristes.</p>
+              </div>
+
+              <div class="project-meta">
+                <div class="project-tags">
+                  <span>Three.js</span>
+                  <span>JavaScript</span>
+                  <span>CSS</span>
+                </div>
+                <a href="https://github.com/aatifsamir0-lang"
+                   target="_blank" rel="noopener noreferrer"
+                   class="project-arrow" aria-label="Voir sur GitHub">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-footer">
+          <span>MORE IDEAS ARE IN PROGRESS</span>
+          <a href="https://github.com/aatifsamir0-lang"
+             target="_blank" rel="noopener noreferrer"
+             class="text-link">
+            Explorer mon GitHub
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills section" id="skills">
+      <div class="section-container">
+
+        <div class="section-heading">
+          <div class="section-eyebrow">
+            <span class="eyebrow-number">03 /</span>
+            <span>MY TOOLKIT</span>
+          </div>
+
+          <h2 class="section-title">
+            Tools of the<br>
+            <span class="title-gradient">trade.</span>
+          </h2>
+
+          <p class="section-side-description">
+            Les technologies que j'apprends et que j'utilise pour donner vie à mes idées.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card">
+            <div class="skill-card-top">
+              <span class="skill-index">01</span>
+              <i class="fa-brands fa-html5 skill-icon"></i>
+            </div>
+            <h3>HTML5</h3>
+            <p>Structure et sémantique du web.</p>
+            <div class="skill-level"><span style="width: 85%"></span></div>
+            <div class="skill-card-bottom"><span>FOUNDATION</span><span>01</span></div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card-top">
+              <span class="skill-index">02</span>
+              <i class="fa-brands fa-css3-alt skill-icon"></i>
+            </div>
+            <h3>CSS3</h3>
+            <p>Design, responsive et animations.</p>
+            <div class="skill-level"><span style="width: 75%"></span></div>
+            <div class="skill-card-bottom"><span>DESIGN</span><span>02</span></div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card-top">
+              <span class="skill-index">03</span>
+              <i class="fa-brands fa-js skill-icon"></i>
+            </div>
+            <h3>JavaScript</h3>
+            <p>Interactions et logique web.</p>
+            <div class="skill-level"><span style="width: 55%"></span></div>
+            <div class="skill-card-bottom"><span>INTERACTIVITY</span><span>03</span></div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card-top">
+              <span class="skill-index">04</span>
+              <i class="fa-brands fa-php skill-icon"></i>
+            </div>
+            <h3>PHP</h3>
+            <p>Développement côté serveur.</p>
+            <div class="skill-level"><span style="width: 55%"></span></div>
+            <div class="skill-card-bottom"><span>BACKEND</span><span>04</span></div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card-top">
+              <span class="skill-index">05</span>
+              <i class="fa-solid fa-database skill-icon"></i>
+            </div>
+            <h3>SQL</h3>
+            <p>Requêtes et gestion des données.</p>
+            <div class="skill-level"><span style="width: 60%"></span></div>
+            <div class="skill-card-bottom"><span>DATA</span><span>05</span></div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-card-top">
+              <span class="skill-index">06</span>
+              <i class="fa-solid fa-cube skill-icon"></i>
+            </div>
+            <h3>Three.js</h3>
+            <p>Exploration des expériences 3D.</p>
+            <div class="skill-level"><span style="width: 35%"></span></div>
+            <div class="skill-card-bottom"><span>EXPLORATION</span><span>06</span></div>
+          </article>
+
+        </div>
+
+        <div class="skills-note">
+          <span class="availability-dot"></span>
+          <p>Always learning. Always building. Always evolving.</p>
+          <span class="skills-note-code">STATUS: IN PROGRESS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+      <div class="section-container">
+
+        <div class="contact-card">
+          <div class="contact-background-orb"></div>
+          <div class="contact-grid"></div>
+
+          <div class="contact-content">
+            <div class="section-eyebrow">
+              <span class="eyebrow-number">04 /</span>
+              <span>THE NEXT CHAPTER</span>
+            </div>
+
+            <h2 class="contact-title">
+              Have an idea?<br>
+              <span class="title-gradient">Let's build it.</span>
+            </h2>
+
+            <p class="contact-description">
+              Un projet, une opportunité ou simplement envie d'échanger ?
+              Ma boîte mail est ouverte.
+            </p>
+
+            <a href="mailto:your.email@example.com" class="button button-primary contact-button">
+              Entrons en contact
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <div class="contact-side">
+            <div class="contact-orbit">
+              <div class="contact-orbit-core">S<span>.</span></div>
+            </div>
+            <span class="contact-side-caption">LET'S CREATE SOMETHING GREAT</span>
+          </div>
+
+          <div class="contact-bottom-label">
+            <span>OPEN TO COLLABORATION</span>
+            <span>ANYWHERE / WORLDWIDE</span>
+          </div>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com">
+            <i class="fa-regular fa-envelope"></i>
+            <span>Email</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+          </a>
+
+          <a href="https://github.com/aatifsamir0-lang"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/"
+             target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="#home" class="logo footer-logo">
+        SAMIR<span class="logo-dot">.</span>
+        <span class="logo-tag">DIGITAL CREATOR</span>
+      </a>
+
+      <a href="#home" class="back-to-top">
+        BACK TO TOP
+        <span><i class="fa-solid fa-arrow-up"></i></span>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="currentYear">2026</span> SAMIR AATIF. ALL RIGHTS RESERVED.</span>
+      <span>DESIGNED WITH <span class="footer-heart">♥</span> AND CURIOSITY.</span>
+      <span class="footer-location"><span class="availability-dot"></span> MOROCCO</span>
+    </div>
+  </footer>
+
+  <!-- MAIN JAVASCRIPT -->
+  <script type="module" src="main.js"></script>
+
+</body>
+</html>
